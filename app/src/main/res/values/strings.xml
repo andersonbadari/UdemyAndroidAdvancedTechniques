@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Social Media</string>
+
+    <string name="offers">Aproveite o desconto de %1s e compre agora o novo curso %2s</string>
+</resources>
