@@ -1,5 +1,6 @@
 package com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder
 
 interface OfferClickListener {
-    fun onClick(discount: String, courseName: String)
+    fun onBuyClick(discount: String, courseName: String)
+    fun onInfoClick(discount: String, courseName: String)
 }

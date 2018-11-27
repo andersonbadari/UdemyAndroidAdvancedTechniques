@@ -14,7 +14,11 @@ class OfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.findViewById<TextView>(R.id.offer_discount).text = formattedString
 
         itemView.findViewById<Button>(R.id.buy_now).setOnClickListener {
-            model.clickListener?.onClick(model.discountPercentage, model.courseName)
+            model.clickListener?.onBuyClick(model.discountPercentage, model.courseName)
+        }
+
+        itemView.findViewById<TextView>(R.id.info).setOnClickListener {
+            model.clickListener?.onInfoClick(model.discountPercentage, model.courseName)
         }
 
     }

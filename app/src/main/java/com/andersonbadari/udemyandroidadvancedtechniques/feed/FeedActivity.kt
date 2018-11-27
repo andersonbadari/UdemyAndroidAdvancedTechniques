@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.andersonbadari.udemyandroidadvancedtechniques.R
 import com.andersonbadari.udemyandroidadvancedtechniques.checkout.CheckoutActivity
+import com.andersonbadari.udemyandroidadvancedtechniques.details.DetailsActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.BaseModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.CommentModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
@@ -81,8 +82,15 @@ class FeedActivity : AppCompatActivity() {
 
     fun provideOfferClickListener(): OfferClickListener {
         val clickListener = object : OfferClickListener {
-            override fun onClick(discount: String, courseName: String) {
+            override fun onBuyClick(discount: String, courseName: String) {
                 Intent(this@FeedActivity, CheckoutActivity::class.java).apply {
+                    putExtra("NAME", courseName)
+                    putExtra("DISC", discount)
+                    startActivity(this)
+                }
+            }
+            override fun onInfoClick(discount: String, courseName: String) {
+                Intent(this@FeedActivity, DetailsActivity::class.java).apply {
                     putExtra("NAME", courseName)
                     putExtra("DISC", discount)
                     startActivity(this)
