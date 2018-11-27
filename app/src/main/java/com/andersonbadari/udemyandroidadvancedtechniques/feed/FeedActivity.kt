@@ -1,11 +1,13 @@
 package com.andersonbadari.udemyandroidadvancedtechniques.feed
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.andersonbadari.udemyandroidadvancedtechniques.R
+import com.andersonbadari.udemyandroidadvancedtechniques.checkout.CheckoutActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.BaseModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.CommentModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
@@ -80,7 +82,11 @@ class FeedActivity : AppCompatActivity() {
     fun provideOfferClickListener(): OfferClickListener {
         val clickListener = object : OfferClickListener {
             override fun onClick(discount: String, courseName: String) {
-                Toast.makeText(this@FeedActivity, "Comprando o curso $courseName com uma taxa de desconto de $discount em 3,2,1...", Toast.LENGTH_SHORT).show()
+                Intent(this@FeedActivity, CheckoutActivity::class.java).apply {
+                    putExtra("NAME", courseName)
+                    putExtra("DISC", discount)
+                    startActivity(this)
+                }
             }
         }
 
