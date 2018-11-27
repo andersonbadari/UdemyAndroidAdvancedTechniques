@@ -18,6 +18,8 @@
         </activity>
 
         <activity android:name=".checkout.CheckoutActivity"/>
+        <activity android:name=".details.DetailsActivity"/>
+
     </application>
 
 </manifest>
