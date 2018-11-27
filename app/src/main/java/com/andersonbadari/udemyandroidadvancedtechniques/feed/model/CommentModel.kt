@@ -1,3 +1,5 @@
 package com.andersonbadari.udemyandroidadvancedtechniques.feed.model
 
-data class CommentModel(var name: String = "", var comment: String = "") : BaseModel()
+import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.CommentClickListener
+
+data class CommentModel(var name: String = "", var comment: String = "", var clickListener: CommentClickListener? = null) : BaseModel()

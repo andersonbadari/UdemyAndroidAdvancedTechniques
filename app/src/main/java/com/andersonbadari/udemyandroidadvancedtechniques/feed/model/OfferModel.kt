@@ -1,3 +1,5 @@
 package com.andersonbadari.udemyandroidadvancedtechniques.feed.model
 
-data class OfferModel(var discountPercentage: String = "", var courseName: String = "") : BaseModel()
+import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.OfferClickListener
+
+data class OfferModel(var discountPercentage: String = "", var courseName: String = "", var clickListener: OfferClickListener? = null) : BaseModel()
