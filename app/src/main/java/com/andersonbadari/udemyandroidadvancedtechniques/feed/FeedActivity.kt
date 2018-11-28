@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.andersonbadari.udemyandroidadvancedtechniques.R
 import com.andersonbadari.udemyandroidadvancedtechniques.checkout.CheckoutActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.details.DetailsActivity
-import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.BaseModel
+import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.FeedModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.CommentModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.CommentClickListener
@@ -57,8 +57,8 @@ class FeedActivity : AppCompatActivity() {
         mRecyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    fun generateList(): ArrayList<BaseModel> {
-        val mList: ArrayList<BaseModel> = ArrayList()
+    fun generateList(): ArrayList<FeedModel> {
+        val mList: ArrayList<FeedModel> = ArrayList()
         mList.add(CommentModel("José Simões", "Curso topper. Positivei", provideCommentClickListener()))
         mList.add(CommentModel("Pedro Marques", "Curso topper. Positivei", provideCommentClickListener()))
         mList.add(OfferModel("25%", "Culinária lunar", provideOfferClickListener()))

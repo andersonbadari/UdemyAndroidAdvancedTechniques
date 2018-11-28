@@ -4,18 +4,26 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.andersonbadari.udemyandroidadvancedtechniques.R
-import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.BaseModel
+import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.FeedModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.CommentModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.CommentViewHolder
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.EmptyViewHolder
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.OfferViewHolder
 
-class FeedAdapter(var mList: ArrayList<BaseModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedAdapter(var mList: ArrayList<FeedModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ITEM_TYPE_COMMENT = 0
         const val ITEM_TYPE_OFFER = 1
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return when (mList[position]) {
+            is CommentModel -> ITEM_TYPE_COMMENT
+            is OfferModel -> ITEM_TYPE_OFFER
+            else -> -1
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
@@ -50,14 +58,6 @@ class FeedAdapter(var mList: ArrayList<BaseModel>) : RecyclerView.Adapter<Recycl
 
     override fun getItemCount(): Int {
         return mList.size
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return when (mList[position]) {
-            is CommentModel -> ITEM_TYPE_COMMENT
-            is OfferModel -> ITEM_TYPE_OFFER
-            else -> -1
-        }
     }
 
 }
