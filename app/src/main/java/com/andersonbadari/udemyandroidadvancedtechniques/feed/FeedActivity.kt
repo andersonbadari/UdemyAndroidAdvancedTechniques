@@ -17,17 +17,19 @@ import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.OfferCl
 
 class FeedActivity : AppCompatActivity() {
 
+    // region coments
     /**
 
-    - Listas (RecyclerView) com múltiplos tipos de itens;
+    - 1 - Listas (RecyclerView) com múltiplos tipos de itens;
 
-    - Listas (RecyclerView) com múltiplos tipos de itens e cliques para cada tipo de item;
+    - 2 - Listas (RecyclerView) com múltiplos tipos de itens e cliques para cada tipo de item;
 
-    - Listas (RecyclerView) com múltiplos tipos de itens e decorações (Decoration) para a separação dos itens da lista;
+    - 3 - Listas (RecyclerView) com múltiplos tipos de itens e decorações (Decoration) para a separação dos itens da lista;
 
-    - Exibições (Views) customizadas (encapsulamento de estados).
+    - 4 - Exibições (Views) customizadas (encapsulamento de estados).
 
      */
+    // endregion
 
     lateinit var mRecyclerView: RecyclerView
 
