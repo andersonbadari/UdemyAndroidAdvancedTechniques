@@ -1,6 +1,8 @@
 package com.andersonbadari.udemyandroidadvancedtechniques.checkout
 
+import android.content.DialogInterface
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.andersonbadari.udemyandroidadvancedtechniques.R
@@ -19,12 +21,32 @@ class CheckoutActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         details.bindData(OfferModel(discount,courseName))
+        details.setHasPoints(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         if (item?.itemId == android.R.id.home) {
-            finish()
+            if (details.getHasPoints()) {
+                AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setTitle("Tem certeza?")
+                        .setMessage("Promoção poderá ser perdida")
+                        .setPositiveButton("SIM", object : DialogInterface.OnClickListener {
+                            override fun onClick(p0: DialogInterface?, p1: Int) {
+                                finish()
+                            }
+                        })
+                        .setNegativeButton("NÃO", object : DialogInterface.OnClickListener {
+                            override fun onClick(p0: DialogInterface?, p1: Int) {
+                                p0?.dismiss()
+                            }
+                        })
+                        .create()
+                        .show()
+            } else {
+                finish()
+            }
         }
 
         return super.onOptionsItemSelected(item)

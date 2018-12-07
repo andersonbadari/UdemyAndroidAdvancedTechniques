@@ -23,10 +23,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_course_name"
+        tools:text="25% de desconto" />
+
+    <Switch
+        android:id="@+id/viewswitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        tools:text="25% de desconto"
+        android:text="Club de pontos?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_course_name" />
+        app:layout_constraintTop_toBottomOf="@+id/custom_course_discount" />
 
 </android.support.constraint.ConstraintLayout>
