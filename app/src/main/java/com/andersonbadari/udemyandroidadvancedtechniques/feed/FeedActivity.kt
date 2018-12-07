@@ -24,9 +24,9 @@ class FeedActivity : AppCompatActivity() {
 
     - 2 - Listas (RecyclerView) com múltiplos tipos de itens e cliques para cada tipo de item;
 
-    - 3 - Listas (RecyclerView) com múltiplos tipos de itens e decorações (Decoration) para a separação dos itens da lista;
+    - 3 - Exibições (Views) customizadas (encapsulamento de estados).
 
-    - 4 - Exibições (Views) customizadas (encapsulamento de estados).
+    - 4 - Bases (Base activity, Base fragment, Base viewholder, etc)
 
      */
     // endregion
