@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.andersonbadari.udemyandroidadvancedtechniques.R
+import com.andersonbadari.udemyandroidadvancedtechniques.base.BaseActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.checkout.CheckoutActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.details.DetailsActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.FeedModel
@@ -14,8 +15,11 @@ import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.CommentModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.CommentClickListener
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.OfferClickListener
+import com.github.magiepooh.recycleritemdecoration.ItemDecorations
 
-class FeedActivity : AppCompatActivity() {
+
+
+class FeedActivity : BaseActivity() {
 
     // region coments
     /**
@@ -105,7 +109,31 @@ class FeedActivity : AppCompatActivity() {
 
     fun decorateRecyclerview() {
         // decora os espaçamentos
-        mRecyclerView.addItemDecoration(MarginItemDecoration(16))
+        // Lembrando que ADD pode ter + de 1
+        singleDecoration()
+        //multiDecoration()
+    }
+
+    fun singleDecoration() { // Decoração manual
+        // mRecyclerView.addItemDecoration(MarginItemDecoration(32))
+        mRecyclerView.addItemDecoration(HorizontalItemDecoration(32))
+        mRecyclerView.addItemDecoration(VerticalItemDecoration(32))
+    }
+
+    fun multiDecoration() { // Decoração com libs
+        val decoration = ItemDecorations.vertical(this)
+
+                .first(R.drawable.decoration_type_space)
+                .type(FeedAdapter.ITEM_TYPE_COMMENT, R.drawable.decoration_type_1)
+                .type(FeedAdapter.ITEM_TYPE_OFFER, R.drawable.decoration_type_2)
+                .last(R.drawable.decoration_type_space)
+
+                .create()
+
+        mRecyclerView.addItemDecoration(decoration)
+
+        mRecyclerView.addItemDecoration(HorizontalItemDecoration(32))
+        //mRecyclerView.addItemDecoration(VerticalItemDecoration(32))
     }
 
     fun setRecyclerviewClicks() {

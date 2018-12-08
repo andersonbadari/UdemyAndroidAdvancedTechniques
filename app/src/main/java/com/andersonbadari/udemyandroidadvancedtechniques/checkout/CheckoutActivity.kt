@@ -3,13 +3,14 @@ package com.andersonbadari.udemyandroidadvancedtechniques.checkout
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.Toast
 import com.andersonbadari.udemyandroidadvancedtechniques.R
+import com.andersonbadari.udemyandroidadvancedtechniques.base.BaseActivity
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.model.OfferModel
 import kotlinx.android.synthetic.main.activity_checkout.*
 
-class CheckoutActivity : AppCompatActivity() {
+class CheckoutActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,15 @@ class CheckoutActivity : AppCompatActivity() {
 
         details.bindData(OfferModel(discount,courseName))
         details.setHasPoints(true)
+
+        finish_checkout.setOnClickListener {
+            // faz consulta numa api e retorna erro
+            showError()
+        }
+    }
+
+    override fun showError() {
+        Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
