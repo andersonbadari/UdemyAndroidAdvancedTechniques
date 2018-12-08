@@ -17,8 +17,6 @@ import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.Comment
 import com.andersonbadari.udemyandroidadvancedtechniques.feed.viewholder.OfferClickListener
 import com.github.magiepooh.recycleritemdecoration.ItemDecorations
 
-
-
 class FeedActivity : BaseActivity() {
 
     // region coments
@@ -31,6 +29,8 @@ class FeedActivity : BaseActivity() {
     - 3 - Exibições (Views) customizadas (encapsulamento de estados).
 
     - 4 - Bases (Base activity, Base fragment, Base viewholder, etc)
+
+    - 5 - Teste
 
      */
     // endregion
