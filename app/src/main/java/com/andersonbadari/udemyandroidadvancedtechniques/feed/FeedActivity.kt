@@ -30,8 +30,6 @@ class FeedActivity : BaseActivity() {
 
     - 4 - Bases (Base activity, Base fragment, Base viewholder, etc)
 
-    - 5 - Teste
-
      */
     // endregion
 
